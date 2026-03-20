@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EGO — Central de Comando de Chefes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 100%; min-height: 100vh; font-family: 'Inter', sans-serif; color: #f1f5f9;
+      background: linear-gradient(rgba(5,8,18,0.98), rgba(5,8,18,0.99)), url("assets/bg.png") center / cover no-repeat fixed;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+
+    /* LAYOUT DE TRÊS COLUNAS (STYLIZED) */
+    .boss-tracker-panel {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: 20px;
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid rgba(251, 146, 60, 0.1);
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Linha decorativa de Elvia no topo */
+    .boss-tracker-panel::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+      background: linear-gradient(90deg, #4ade80, #fb923c, #4ade80);
+    }
+
+    .tracker-col { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+    .tracker-label { font-family: 'Cinzel'; font-size: 12px; color: #94a3b8; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+
+    /* ESTILO DO FOCO CENTRAL */
+    .col-main { border-left: 1px solid rgba(255,255,255,0.05); border-right: 1px solid rgba(255,255,255,0.05); padding: 0 20px; }
+    .boss-timer { font-size: 4rem; font-weight: 900; font-family: 'Cinzel'; color: #fff; line-height: 1; margin: 10px 0; text-shadow: 0 0 15px rgba(255,255,255,0.3); }
+    .boss-upcoming-names { font-size: 1.8rem; color: #fb923c; font-weight: 700; text-transform: uppercase; font-family: 'Cinzel'; }
+
+    /* ESTILOS LATERAIS */
+    .boss-side-name { font-size: 1.2rem; font-weight: 600; color: #4ade80; text-transform: uppercase; }
+    .side-timer { font-size: 1.5rem; color: #94a3b8; font-family: 'Cinzel'; }
+
+    /* ESTADOS DE ALERTA */
+    .near-spawn .boss-timer { color: #ef4444; animation: pulse 1s infinite; text-shadow: 0 0 20px rgba(239, 68, 68, 0.5); }
+    .near-spawn .tracker-label-main { color: #ef4444; }
+
+    /* TABELA OFICIAL (INTEGRADA) */
+    .table-container { overflow-x: auto; border-radius: 8px; border: 1px solid rgba(251,146,60,0.1); }
+    table { width: 100%; border-collapse: collapse; background: rgba(15, 23, 42, 0.8); min-width: 900px; }
+    th, td { padding: 12px; border: 1px solid rgba(255,255,255,0.03); text-align: center; font-size: 12px; }
+    th { background: rgba(251, 146, 60, 0.1); font-family: 'Cinzel'; color: #fb923c; }
+    
+    .time-col { background: rgba(0,0,0,0.2); font-weight: bold; color: #94a3b8; }
+    .today-col { background: rgba(251, 146, 60, 0.05) !important; border-left: 1px solid rgba(251,146,60,0.2); border-right: 1px solid rgba(251,146,60,0.2); }
+    
+    .boss-item { display: block; font-weight: bold; margin: 2px 0; }
+    
+    /* Cores de Boss */
+    .color-garmoth { color: #ef4444; } .color-vell { color: #3b82f6; }
+    .color-kzarka, .color-karanda, .color-nouver, .color-kutum { color: #4ade80; }
+    .color-offin, .color-novo { color: #a855f7; }
+
+    .btn-voltar { display: inline-block; margin-top: 30px; color: #fb923c; text-decoration: none; font-family: 'Cinzel'; border: 1px solid #fb923c; padding: 10px 25px; border-radius: 4px; transition: 0.3s; }
+    .btn-voltar:hover { background: #fb923c; color: #000; }
+
+    @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
+    @media (max-width: 900px) { .boss-tracker-panel { grid-template-columns: 1fr; } .col-main { border: none; padding: 20px 0; } }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div id="tracker-panel" class="boss-tracker-panel">
+    
+    <div class="tracker-col col-side">
+      <div class="tracker-label">Status Anterior</div>
+      <div id="last-boss-name" class="boss-side-name">--</div>
+      <div id="last-boss-status" class="side-timer" style="color: #ef4444;">Passou</div>
+    </div>
+
+    <div class="tracker-col col-main">
+      <div id="main-label" class="tracker-label tracker-label-main">Próximo Spawn em:</div>
+      <div id="timer" class="boss-timer">--:--:--</div>
+      <div id="next-boss-name" class="boss-upcoming-names">Sincronizando...</div>
+    </div>
+
+    <div class="tracker-col col-side">
+      <div class="tracker-label">Na Sequência</div>
+      <div id="following-boss-name" class="boss-side-name">--</div>
+      <div id="following-boss-time" class="side-timer">--:--</div>
+    </div>
+
+  </div>
+
+  <div class="table-container">
+    <table id="bossTable">
+      <thead>
+        <tr>
+          <th>Hora</th>
+          <th data-day="1">SEG</th><th data-day="2">TER</th><th data-day="3">QUA</th>
+          <th data-day="4">QUI</th><th data-day="5">SEX</th><th data-day="6">SÁB</th>
+          <th data-day="0">DOM</th>
+        </tr>
+      </thead>
+      <tbody id="boss-body">
+        </tbody>
+    </table>
+  </div>
+
+  <div style="text-align: center;">
+    <a href="index.html" class="btn-voltar">◆ Voltar ao Início</a>
+  </div>
+</div>
+
+<audio id="alert-sound" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" preload="auto"></audio>
+
+<script>
+  // Dados baseados na imagem da tabela oficial que você mandou
+  const bossData = {
+    "02:00": ["Kzarka/Bulgasal", "Novo/Usos", "Offin/Porcos", "-", "Karanda/San-Gun", "Kutum/Bulgasal", "Nouver/San-Gun"],
+    "11:00": ["Nouver/San-Gun", "Kutum/Porcos", "Novo/Usos", "Kzarka/San-Gun", "Offin/Bulgasal", "Karanda/Usos", "Kutum/Bulgasal"],
+    "14:00": ["Garmoth", "Garmoth", "Garmoth", "Garmoth", "Garmoth", "Garmoth", "Garmoth"],
+    "16:00": ["Kutum/Porcos", "Nouver/San-Gun", "Karanda/San-Gun", "Novo/Bulgasal", "Kzarka/Usos", "Kzarka/Porcos", "Karanda/Usos"],
+    "17:00": ["-", "-", "-", "-", "-", "Espírito Negro", "Antigo"],
+    "19:00": ["-", "-", "Quint/Muraka", "-", "Antigo", "Quint/Muraka", "Garmoth"],
+    "20:00": ["Karanda/Usos", "Kzarka/Bulgasal", "Kutum/Porcos", "Karanda/Usos", "Kutum/Porcos", "-", "Kzarka/San-Gun"],
+    "23:15": ["Garmoth", "Garmoth", "Garmoth", "Garmoth", "Garmoth", "-", "Garmoth"],
+    "23:30": ["Offin/Bulgasal", "Karanda/Usos", "Kzarka/Bulgasal", "Kutum/Porcos", "Nouver/San-Gun", "-", "Nouver/Porcos"]
+  };
+
+  const times = Object.keys(bossData).sort();
+  let hasAlerted = false;
+
+  function fillTable() {
+    const body = document.getElementById('boss-body');
+    const today = new Date().getDay();
+    const dayIdx = (today === 0) ? 6 : today - 1;
+
+    for (let time in bossData) {
+      let row = `<tr><td class="time-col">${time}</td>`;
+      bossData[time].forEach((cellData, index) => {
+        const isToday = (index === dayIdx);
+        const dayClass = isToday ? 'today-col' : '';
+        
+        let content = "-";
+        if (cellData !== "-") {
+          content = cellData.split('/').map(name => {
+            const cleanName = name.split(' ')[0].toLowerCase();
+            return `<span class="boss-item color-${cleanName}">${name}</span>`;
+          }).join('');
+        }
+        row += `<td class="${dayClass}">${content}</td>`;
+      });
+      body.innerHTML += row + `</tr>`;
+    }
+  }
+
+  function getBossInfo(day, timeStr) {
+    if (!bossData[timeStr]) return "-";
+    const dayIdx = (day === 0) ? 6 : day - 1;
+    return bossData[timeStr][dayIdx];
+  }
+
+  function updateTracker() {
+    const now = new Date();
+    const day = now.getDay();
+    const currentTimeStr = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0');
+    const panel = document.getElementById('tracker-panel');
+    const alertSound = document.getElementById('alert-sound');
+
+    let currentIndex = -1;
+    for (let i = 0; i < times.length; i++) {
+      if (times[i] > currentTimeStr) {
+        currentIndex = i;
+        break;
+      }
+    }
+
+    let currentBossTime, nextBossTime, followingBossTime;
+    let currentDay = day, nextDay = day, followingDay = day;
+
+    if (currentIndex === -1) {
+      // O próximo é o primeiro de amanhã
+      currentBossTime = times[0];
+      nextDay = (day === 6) ? 0 : day + 1;
+      
+      followingBossTime = times[1];
+      followingDay = nextDay;
+    } else {
+      currentBossTime = times[currentIndex];
+      
+      // Acha o "Seguido por"
+      if (currentIndex + 1 < times.length) {
+        followingBossTime = times[currentIndex + 1];
+        followingDay = day;
+      } else {
+        followingBossTime = times[0];
+        followingDay = (day === 6) ? 0 : day + 1;
+      }
+    }
+
+    const currentBosses = getBossInfo(nextDay, currentBossTime);
+    const followingBosses = getBossInfo(followingDay, followingBossTime);
+
+    // CÁLCULO DO TIMER CENTRAL
+    const [h, m] = currentBossTime.split(':');
+    let target = new Date();
+    target.setHours(h, m, 0);
+    if (target < now) target.setDate(target.getDate() + 1);
+
+    const diff = target - now;
+    const hh = Math.floor(diff / 3600000);
+    const mm = Math.floor((diff % 3600000) / 60000);
+    const ss = Math.floor((diff % 60000) / 1000);
+
+    // SISTEMA DE ALERTA (Faltam 10 minutos)
+    if (hh === 0 && mm < 10) {
+      panel.classList.add('near-spawn');
+      document.getElementById('main-label').innerText = "SPAWN IMINENTE!";
+      if (!hasAlerted) {
+        alertSound.play().catch(() => {}); // Play som (pode travar no navegador)
+        hasAlerted = true;
+      }
+    } else {
+      panel.classList.remove('near-spawn');
+      document.getElementById('main-label').innerText = "Próximo Spawn em:";
+      hasAlerted = false; // Reseta o alerta para o próximo boss
+    }
+
+    // Atualiza HTML
+    document.getElementById('timer').innerText = `${hh.toString().padStart(2,'0')}:${mm.toString().padStart(2,'0')}:${ss.toString().padStart(2,'0')}`;
+    document.getElementById('next-boss-name').innerText = currentBosses.replace('/', ' & ');
+    document.getElementById('following-boss-name').innerText = followingBosses.split('/')[0]; // Pega só o primeiro se for duplo
+    document.getElementById('following-boss-time').innerText = followingBossTime;
+  }
+
+  fillTable();
+  updateTracker();
+  setInterval(updateTracker, 1000);
+</script>
+
+</body>
+</html>

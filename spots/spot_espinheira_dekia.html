@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EGO — Floresta Espinheira (Dekia)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 100%; min-height: 100vh; font-family: 'Inter', sans-serif; color: #f1f5f9;
+      background: linear-gradient(rgba(5,8,18,0.96), rgba(5,8,18,0.98)), url("../assets/bg.png") center / cover no-repeat fixed;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+    
+    /* CABEÇALHO O'DYLLITA (ROXO) */
+    .spot-header { border-bottom: 2px solid #a855f7; padding-bottom: 20px; margin-bottom: 25px; }
+    .spot-title { font-family: 'Cinzel'; font-size: 32px; color: #a855f7; text-transform: uppercase; letter-spacing: 2px; }
+    .requirements { display: flex; gap: 20px; margin-top: 10px; font-weight: bold; font-size: 18px; }
+    .req-pa { color: #fb923c; } 
+    .req-dp { color: #a855f7; }
+
+    .card { background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 25px; margin-bottom: 25px; }
+    h2 { font-family: 'Cinzel'; font-size: 18px; color: #a855f7; margin-bottom: 15px; border-bottom: 1px solid rgba(168,85,247,0.2); padding-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+
+    /* GRID VISUAL */
+    .visual-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 25px; margin-bottom: 25px; }
+    .visual-card { background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 25px; display: flex; flex-direction: column; }
+    .img-frame { width: 100%; border-radius: 4px; overflow: hidden; border: 1px solid rgba(168,85,247,0.3); background: #000; position: relative; }
+    .img-frame img { width: 100%; height: auto; display: block; }
+
+    .btn-mapa { display: inline-block; margin-top: 15px; background: #a855f7; color: #fff; padding: 10px 20px; border-radius: 4px; font-weight: bold; text-decoration: none; font-size: 13px; transition: 0.3s; text-align: center; }
+    .btn-mapa:hover { background: #7e22ce; transform: scale(1.05); }
+
+    .info-box { background: rgba(168, 85, 247, 0.05); border-left: 4px solid #a855f7; padding: 15px; margin-bottom: 20px; font-size: 14px; line-height: 1.6; }
+    .highlight { color: #a855f7; font-weight: bold; }
+
+    /* TECH GRID */
+    .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+    .tech-card { background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+    .tech-card h3 { font-family: 'Cinzel'; font-size: 14px; color: #fb923c; margin-bottom: 10px; border-bottom: 1px solid rgba(251, 146, 60, 0.1); padding-bottom: 5px; }
+    .tech-list { list-style: none; font-size: 13px; color: #cbd5e1; }
+    .tech-list li { margin-bottom: 8px; padding-left: 15px; position: relative; }
+    .tech-list li::before { content: '▹'; position: absolute; left: 0; color: #a855f7; }
+
+    .btn-voltar { display: inline-block; margin: 40px 0; color: #a855f7; text-decoration: none; font-family: 'Cinzel'; border: 1px solid #a855f7; padding: 12px 30px; border-radius: 4px; transition: 0.3s; }
+    .btn-voltar:hover { background: #a855f7; color: #fff; }
+
+    @media (max-width: 900px) { .visual-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="spot-header">
+      <h1 class="spot-title">Floresta Espinheira (Dekia)</h1>
+      <div class="requirements">
+        <span class="req-pa">⚔️ 310 mais</span>
+        <span class="req-dp">🛡️ 410 mais</span>
+      </div>
+    </div>
+
+    <div class="visual-grid">
+      <div class="visual-card">
+        <h2>💰 Loot Principal</h2>
+        <div class="img-frame">
+          <img src="../assets/loot_espinheira_dekia.png" alt="Loot Dekia">
+        </div>
+        <p style="margin-top: 15px; font-size: 13px; color: #94a3b8;">* Foco em <b>Anel maldito</b>
+      </div>
+
+      <div class="visual-card">
+        <h2>📍 Localização (GPS)</h2>
+        <div class="img-frame">
+          <img src="../assets/mapa_espinheira_dekia.png" alt="Localização">
+        </div>
+        <a href="https://bdolytics.com/pt/SA/map" target="_blank" class="btn-mapa">🌐 Abrir Mapa Interativo</a>
+        <p style="margin-top: 15px; font-size: 13px; color: #94a3b8;">* Utilize a Lanterna de Dekia nos locais específicos da floresta.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>⚔️ Mecânica da Lanterna de Dekia</h2>
+      <div class="info-box">
+        <b>Rotação de Estátua:</b> Diferente do spot normal, Dekia foca em invocações ao redor da Lanterna. Você deve ativar a <span class="highlight">Lanterna de Dekia</span> perto das fendas. Ondas de monstros (Ahib) surgirão sem parar.
+        <br><br>
+        <b>Foco de Prioridade:</b> Mate os <b>Mestres de Bestas</b> e os <b>Cavaleiros Ahib</b> o mais rápido possível. Eles possuem ataques que ignoram parte da sua defesa e podem causar instabilidade na rotação.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🧪 Configuração Técnica de Sobrevivência</h2>
+      <div class="info-box">
+        <b>Raça Humanoide:</b> Assim como na Base Hong-nim, os Ahibs são <span class="highlight">Humanoides</span>. Foque em artefatos de dano à raça e cristais de resistência.
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>💎 Cristais (Anti-Derrubada)</h3>
+          <ul class="tech-list">
+            <li><b>Cristal Adamantino:</b> Essencial para atingir 100% de resistência a Derrubada/Arremesso.</li>
+            <li><b>Cristal Glorioso (Hoom):</b> Para aumentar HP Máximo, Precisão e Evasão/DP.</li>
+            <li><b>Artefatos Kabua:</b> Obrigatórios para o bônus de redução de dano de monstro.</li>
+            <li><b>Combo Humanoide:</b> Use o set de Pedras de Luz para Dano a Humanoide.</li>
+          </ul>
+        </div>
+
+        <div class="tech-card">
+          <h3>🍱 Buffs e Food</h3>
+          <ul class="tech-list">
+            <li><b>Refeição Simples de Cron:</b> Essencial pelo PA adicional e redução de dano.</li>
+            <li><b>Fármaco da Harmonia (Humanoide):</b> Potencializa o dano na raça específica.</li>
+            <li><b>Frasco da Fera:</b> Se estiver com dificuldade de manter o HP cheio.</li>
+            <li><b>Perfume de Coragem:</b> Para maximizar o PA se estiver confortável no DP.</li>
+          </ul>
+        </div>
+
+        <div class="tech-card">
+          <h3>🛡️ Dicas de Segurança</h3>
+          <ul class="tech-list">
+            <li>Mantenha o buff de <b>SA (Super Armor)</b> ou <b>FG (Frontal Guard)</b> 100% do tempo.</li>
+            <li>O dano nas costas (Back Attack) aqui é fatal para o jogador; nunca deixe os mobs te cercarem.</li>
+            <li>Use Add-ons de <b>Recuperação de HP por acerto</b> e <b>Aumento de DP</b>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center;">
+      <a href="../guia_caps.html" class="btn-voltar">◆ Voltar para Central de Spots</a>
+    </div>
+  </div>
+
+</body>
+</html>

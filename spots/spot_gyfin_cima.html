@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EGO — Gyfin Rhasia (Superior)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 100%; min-height: 100vh; font-family: 'Inter', sans-serif; color: #f1f5f9;
+      background: linear-gradient(rgba(5,8,18,0.96), rgba(5,8,18,0.98)), url("../assets/bg.png") center / cover no-repeat fixed;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+    
+    /* CABEÇALHO KAMASYLVIA (AZUL) */
+    .spot-header { border-bottom: 2px solid #60a5fa; padding-bottom: 20px; margin-bottom: 25px; }
+    .spot-title { font-family: 'Cinzel'; font-size: 32px; color: #60a5fa; text-transform: uppercase; letter-spacing: 2px; }
+    .requirements { display: flex; gap: 20px; margin-top: 10px; font-weight: bold; font-size: 18px; }
+    .req-pa { color: #fb923c; } 
+    .req-dp { color: #60a5fa; }
+
+    .card { background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 25px; margin-bottom: 25px; }
+    h2 { font-family: 'Cinzel'; font-size: 18px; color: #60a5fa; margin-bottom: 15px; border-bottom: 1px solid rgba(96,165,250,0.2); padding-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+
+    /* GRID VISUAL: 2 COLUNAS */
+    .visual-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 25px; margin-bottom: 25px; }
+    .visual-card { background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 25px; display: flex; flex-direction: column; }
+    
+    .img-frame { width: 100%; border-radius: 4px; overflow: hidden; border: 1px solid rgba(96,165,250,0.3); background: #000; position: relative; }
+    .img-frame img { width: 100%; height: auto; display: block; }
+
+    .btn-mapa { display: inline-block; margin-top: 15px; background: #60a5fa; color: #000; padding: 10px 20px; border-radius: 4px; font-weight: bold; text-decoration: none; font-size: 13px; transition: 0.3s; text-align: center; }
+    .btn-mapa:hover { background: #3b82f6; transform: scale(1.05); }
+
+    /* INFO BOX */
+    .info-box { background: rgba(96, 165, 250, 0.05); border-left: 4px solid #60a5fa; padding: 15px; margin-bottom: 20px; font-size: 14px; line-height: 1.6; }
+    .highlight { color: #60a5fa; font-weight: bold; }
+
+    /* TECH GRID */
+    .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+    .tech-card { background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+    .tech-card h3 { font-family: 'Cinzel'; font-size: 14px; color: #fb923c; margin-bottom: 10px; border-bottom: 1px solid rgba(251, 146, 60, 0.1); padding-bottom: 5px; }
+    .tech-list { list-style: none; font-size: 13px; color: #cbd5e1; }
+    .tech-list li { margin-bottom: 8px; padding-left: 15px; position: relative; }
+    .tech-list li::before { content: '▹'; position: absolute; left: 0; color: #60a5fa; }
+
+    .btn-voltar { display: inline-block; margin: 40px 0; color: #60a5fa; text-decoration: none; font-family: 'Cinzel'; border: 1px solid #60a5fa; padding: 12px 30px; border-radius: 4px; transition: 0.3s; }
+    .btn-voltar:hover { background: #60a5fa; color: #000; }
+
+    @media (max-width: 900px) { .visual-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="spot-header">
+      <h1 class="spot-title">Gyfin Rhasia (Parte Superior)</h1>
+      <div class="requirements">
+        <span class="req-pa">⚔️ 250 mais</span>
+        <span class="req-dp">🛡️ 320 mais</span>
+      </div>
+    </div>
+
+    <div class="visual-grid">
+      <div class="visual-card">
+        <h2>💰 Loot do Mapa (Kamasylvia)</h2>
+        <div class="img-frame">
+          <img src="../assets/loot_gyfin_cima.png" alt="Loot Gyfin">
+        </div>
+        <p style="margin-top: 15px; font-size: 13px; color: #94a3b8;">* Foco em <b>Cinto Tungrad</b> e <b>Fúria da Floresta</b>.</p>
+      </div>
+
+      <div class="visual-card">
+        <h2>📍 Localização (GPS)</h2>
+        <div class="img-frame">
+          <img src="../assets/mapa_gyfin_cima.png" alt="Localização">
+        </div>
+        <a href="https://bdolytics.com/en/NA/map/gyfin-rhasia-temple" target="_blank" class="btn-mapa">🌐 Abrir Mapa Interativo</a>
+        <p style="margin-top: 15px; font-size: 13px; color: #94a3b8;">* Localizado ao sul de Grana, no Templo de Gyfin Rhasia.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🗿 Mecânica das Estátuas</h2>
+      <div class="info-box">
+        <b>Mecânica Principal:</b> Os monstros começam como estátuas petrificadas. Ao se aproximar ou atacar, elas "despertam". O foco deve ser nos <b>Esmagadores</b> e <b>Flanqueadores</b>, que possuem ataques de área (AoE) lentos, mas devastadores.
+        <br><br>
+        <b>Trabalho em Grupo:</b> Embora seja possível solar com gear alto, a parte superior foi desenhada para grupos de 3 pessoas, onde o loot é compartilhado individualmente para cada membro.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🧪 Configuração Técnica</h2>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>🍱 Buffs de Consumíveis</h3>
+          <ul class="tech-list">
+            <li><b>Iguarias de Cron:</b> Recomendado para dano Crítico e precisão.</li>
+            <li><b>Fármaco do Gigante:</b> Melhor para maximizar o dano especial.</li>
+            <li><b>Fera:</b> Use para sustento de vida se o seu DP estiver baixo.</li>
+          </ul>
+        </div>
+
+        <div class="tech-card">
+          <h3>💎 Cristais e Raça</h3>
+          <ul class="tech-list">
+            <li><b>Kamasylvia:</b> Os monstros são da raça Kamasylvia. Use artefatos específicos.</li>
+            <li><b>Precisão:</b> Essencial para não errar golpes nas estátuas de elite.</li>
+            <li><b>Resistência:</b> Cristais contra Derrubada/Rigidez ajudam muito aqui.</li>
+          </ul>
+        </div>
+
+        <div class="tech-card">
+          <h3>⚔️ Dicas de Rotação</h3>
+          <ul class="tech-list">
+            <li>Foque em atacar pelas costas (Back Attack) enquanto as estátuas carregam os golpes.</li>
+            <li>Não ignore os arqueiros ao redor, eles podem cancelar seus combos.</li>
+            <li>Mantenha os buffs de classe ativos antes de "acordar" os packs maiores.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center;">
+      <a href="../guia_caps.html" class="btn-voltar">◆ Voltar para Central de Spots</a>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EGO — Santuário Hexe (Hadum)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 100%; min-height: 100vh; font-family: 'Inter', sans-serif; color: #f1f5f9;
+      background: linear-gradient(rgba(5,8,18,0.96), rgba(5,8,18,0.98)), url("../assets/bg.png") center / cover no-repeat fixed;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+    
+    /* CABEÇALHO HADUM (VERDE) */
+    .spot-header { border-bottom: 2px solid #4ade80; padding-bottom: 20px; margin-bottom: 25px; }
+    .spot-title { font-family: 'Cinzel'; font-size: 32px; color: #4ade80; text-transform: uppercase; letter-spacing: 2px; }
+    .requirements { display: flex; gap: 20px; margin-top: 10px; font-weight: bold; font-size: 18px; }
+    .req-pa { color: #fb923c; } 
+    .req-dp { color: #4ade80; }
+
+    .card { background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 25px; margin-bottom: 25px; }
+    h2 { font-family: 'Cinzel'; font-size: 18px; color: #4ade80; margin-bottom: 15px; border-bottom: 1px solid rgba(74,222,128,0.2); padding-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+
+    /* GRID VISUAL: 2 COLUNAS */
+    .visual-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 25px; margin-bottom: 25px; }
+    .visual-card { background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 25px; display: flex; flex-direction: column; }
+    
+    .img-frame { width: 100%; border-radius: 4px; overflow: hidden; border: 1px solid rgba(74,222,128,0.3); background: #000; position: relative; }
+    .img-frame img { width: 100%; height: auto; display: block; }
+
+    .btn-mapa { display: inline-block; margin-top: 15px; background: #4ade80; color: #000; padding: 10px 20px; border-radius: 4px; font-weight: bold; text-decoration: none; font-size: 13px; transition: 0.3s; text-align: center; }
+    .btn-mapa:hover { background: #22c55e; transform: scale(1.05); }
+
+    /* INFO BOX */
+    .info-box { background: rgba(74, 222, 128, 0.05); border-left: 4px solid #4ade80; padding: 15px; margin-bottom: 20px; font-size: 14px; line-height: 1.6; }
+    .highlight { color: #4ade80; font-weight: bold; }
+
+    /* TECH GRID */
+    .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+    .tech-card { background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+    .tech-card h3 { font-family: 'Cinzel'; font-size: 14px; color: #fb923c; margin-bottom: 10px; border-bottom: 1px solid rgba(251, 146, 60, 0.1); padding-bottom: 5px; }
+    .tech-list { list-style: none; font-size: 13px; color: #cbd5e1; }
+    .tech-list li { margin-bottom: 8px; padding-left: 15px; position: relative; }
+    .tech-list li::before { content: '▹'; position: absolute; left: 0; color: #4ade80; }
+
+    .btn-voltar { display: inline-block; margin: 40px 0; color: #4ade80; text-decoration: none; font-family: 'Cinzel'; border: 1px solid #4ade80; padding: 12px 30px; border-radius: 4px; transition: 0.3s; }
+    .btn-voltar:hover { background: #4ade80; color: #000; }
+
+    @media (max-width: 900px) { .visual-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="spot-header">
+      <h1 class="spot-title">Santuário Hexe (Reino de Elvia)</h1>
+      <div class="requirements">
+        <span class="req-pa">⚔️ 300 mais</span>
+        <span class="req-dp">🛡️ 390 mais</span>
+      </div>
+    </div>
+
+    <div class="visual-grid">
+      <div class="visual-card">
+        <h2>💰 Loot Principal</h2>
+        <div class="img-frame">
+          <img src="../assets/loot_hexe_elvia.png" alt="Loot Hexe">
+        </div>
+        <p style="margin-top: 15px; font-size: 13px; color: #94a3b8;">* Foco em <b>Coração da Floresta Vazia</b> e <b>Cálice de Serendia</b>.</p>
+      </div>
+
+      <div class="visual-card">
+        <h2>📍 Localização (GPS)</h2>
+        <div class="img-frame">
+          <img src="../assets/mapa_hexe_elvia.png" alt="Localização">
+        </div>
+        <a href="https://bdolytics.com/en/NA/map/hexe-sanctuary" target="_blank" class="btn-mapa">🌐 Abrir Mapa Interativo</a>
+        <p style="margin-top: 15px; font-size: 13px; color: #94a3b8;">* Localizado ao sul de Calpheon, na região do Santuário Hexe.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>💀 Mecânica das Almas e Invocação</h2>
+      <div class="info-box">
+        <b>Mecânica Principal:</b> Ao derrotar os monstros, almas serão coletadas em estruturas chamadas <span class="highlight">Fenda do Desespero</span>. Quando cheias, elas invocam hordas massivas e elites.
+        <br><br>
+        <b>Invasão de Hexe Marie:</b> Ocasionalmente, a Hexe Marie aparecerá. Derrote-a rapidamente para ganhar buffs temporários e loots raros de Elvia. É um spot de <b>agrupamento estático</b>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🧪 Configuração Técnica</h2>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>🍱 Buffs e Food</h3>
+          <ul class="tech-list">
+            <li><b>Iguarias de Cron:</b> Recomendado para maximizar o dano Crítico.</li>
+            <li><b>Fármaco do Gigante:</b> Essencial pela densidade de monstros.</li>
+            <li><b>Frasco da Fera:</b> Ótimo para sustento se o DP estiver no limite.</li>
+          </ul>
+        </div>
+
+        <div class="tech-card">
+          <h3>💎 Cristais e Artefatos</h3>
+          <ul class="tech-list">
+            <li><b>Humanoides/Mortos-Vivos:</b> A maioria dos monstros é humanoide ou morto-vivo. Use artefatos de dano à raça.</li>
+            <li><b>Precisão:</b> Mantenha sua precisão alta para os Elites.</li>
+            <li><b>HP Recovery:</b> Add-ons de cura por acerto são fundamentais devido ao dano constante.</li>
+          </ul>
+        </div>
+
+        <div class="tech-card">
+          <h3>⚔️ Dicas de Sobrevivência</h3>
+          <ul class="tech-list">
+            <li>Fique perto das torres para maximizar o respawn.</li>
+            <li>Cuidado com as explosões de área dos esqueletos elites.</li>
+            <li>Use as <b>Armas de Hadum</b> assim que aparecerem para limpar as fendas.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center;">
+      <a href="../guia_caps.html" class="btn-voltar">◆ Voltar para Central de Spots</a>
+    </div>
+  </div>
+
+</body>
+</html>

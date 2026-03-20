@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EGO — Database de Spots</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 100%; min-height: 100%; font-family: 'Inter', sans-serif; color: #f1f5f9;
+      background: linear-gradient(rgba(5,8,18,0.94), rgba(5,8,18,0.97)), url("./bg.png") center / cover no-repeat fixed;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+    .title-area { text-align: center; margin-bottom: 50px; }
+    .title-area h1 { font-family: 'Cinzel'; color: #fb923c; font-size: 38px; letter-spacing: 2px; }
+
+    .category-label { 
+      font-family: 'Cinzel'; font-size: 22px; color: #fb923c; 
+      margin: 50px 0 25px; border-left: 4px solid #fb923c; padding-left: 15px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .category-label span { font-size: 14px; opacity: 0.6; font-family: 'Inter'; }
+
+    .spot-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+      gap: 20px; 
+    }
+
+    .spot-card {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .spot-card:hover {
+      transform: translateY(-8px);
+      border-color: #fb923c;
+      box-shadow: 0 15px 45px rgba(0,0,0,0.7);
+    }
+
+    .spot-img { height: 140px; background-color: #000; position: relative; }
+    .spot-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: 0.4s; }
+    .spot-card:hover .spot-img img { opacity: 0.9; transform: scale(1.05); }
+
+    .race-badge {
+      position: absolute; top: 10px; right: 10px;
+      padding: 3px 8px; border-radius: 4px; font-size: 10px; font-weight: bold;
+      text-transform: uppercase; background: rgba(0,0,0,0.8); border: 1px solid #fb923c; color: #fb923c;
+    }
+
+    .spot-desc { padding: 18px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+    .spot-name { font-family: 'Cinzel'; font-size: 17px; color: #fff; margin-bottom: 10px; }
+    
+    .spot-meta { font-size: 12px; color: #94a3b8; display: flex; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px; }
+    .pa-req { color: #fb923c; font-weight: bold; }
+
+    .btn-voltar {
+      display: inline-block; margin-top: 60px; padding: 12px 30px;
+      border: 1px solid #fb923c; color: #fb923c; text-decoration: none;
+      font-family: 'Cinzel'; transition: 0.3s;
+    }
+    .btn-voltar:hover { background: #fb923c; color: #000; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="title-area">
+      <h1>Áreas de Operação EGO</h1>
+      <p>Guia de eficiência para cada estágio da sua jornada.</p>
+    </div>
+
+    <div class="category-label">🟢 Early Game <span>Foco: Temporada & Poções Infinitas</span></div>
+    <div class="spot-grid">
+      <a href="spots/spot_polly.html" class="spot-card">
+        <div class="spot-img"><img src="../geminii/assets/polly-loc.png" alt=""><span class="race-badge">Kamasylvia</span></div>
+        <div class="spot-desc">
+          <h3 class="spot-name">Floresta Polly</h3>
+          <div class="spot-meta"><span class="pa-req">PA: 160+</span><span>XP & Skill</span></div>
+        </div>
+      </a>
+      <a href="spots/spot_wolves.html" class="spot-card">
+        <div class="spot-img"><img src="../geminii/assets/mapa_wolves.png" alt=""><span class="race-badge">Humanoide</span></div>
+        <div class="spot-desc">
+          <h3 class="spot-name">Lobo Escarlate</h3>
+          <div class="spot-meta"><span class="pa-req">PA: 190+</span><span>Peça Poção (HP)</span></div>
+        </div>
+      </a>
+      <a href="spots/spot_sherekan.html" class="spot-card">
+        <div class="spot-img"><img src="../geminii/assets/mapa_sherekan.png" alt=""><span class="race-badge">Humanos</span></div>
+        <div class="spot-desc">
+          <h3 class="spot-name">Necrópole Sherekhan</h3>
+          <div class="spot-meta"><span class="pa-req">PA: 210+</span><span>Peça Poção (HP)</span></div>
+        </div>
+      </a>
+      <a href="spots/spot_manshaum.html" class="spot-card">
+        <div class="spot-img"><img src="../geminii/assets/mapa_manshaum.png" alt=""><span class="race-badge">Kamasylvia</span></div>
+        <div class="spot-desc">
+          <h3 class="spot-name">Manshaum</h3>
+          <div class="spot-meta"><span class="pa-req">PA: 230+</span><span>Peça Poção (Mana)</span></div>
+        </div>
+      </a>
+      <a href="spots/spot_cadry.html" class="spot-card">
+        <div class="spot-img"><img src="../geminii/assets/cadry.png" alt=""><span class="race-badge">Humanoide</span></div>
+        <div class="spot-desc">
+          <h3 class="spot-name">Ruínas de Cadry</h3>
+          <div class="spot-meta"><span class="pa-req">PA: 140+</span><span>Prata (Caphras)</span></div>
+        </div>
+      </a>
+      <a href="spots/spot_fogans.html" class="spot-card">
+        <div class="spot-img"><img src="../geminii/assets/mapa_fogans.png" alt=""><span class="race-badge">Humanoide</span></div>
+        <div class="spot-desc">
+          <h3 class="spot-name">Fogans do Deserto</h3>
+          <div class="spot-meta"><span class="pa-req">PA: 100+</span><span>Início Temporada</span></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="category-label">🟡 Mid Game <span>Foco: Prata por Hora & Blackstar</span></div>
+    <div class="spot-grid">
+      <a href="spots/spot_orcs.html" class="spot-card">
+        <div class="spot-img"><img src="../geminii/assets/mapa_orcs.png" alt=""><span class="race-badge">Humanoide</span></div>
+        <div class="spot-desc">
+          <h3 class="spot-name">Acampamento Orc (Elvia)</h3>
+          <div class="spot-meta"><span class="pa-req">PA: 280+</span><span>Meta Prata/H</span></div>
+        </div>
+      </a>
+      <a href="spots/spot_hongnim.html" class="spot-card">
+        <div class="spot-img"><img src="../geminii/assets/mapa_hongnim.png" alt=""><span class="race-badge">Humanoide</span></div>
+        <div class="spot-desc">
+          <h3 class="spot-name">Base Hong-nim (Terra do Amanhecer)</h3>
+          <div class="spot-meta"><span class="pa-req">PA: 270+</span><span>Anel Tungrade</span></div>
+        </div>
+      </a>
+      <a href="spots/spot_monasterio.html" class="spot-card">
+        <div class="spot-img"><img src="../geminii/assets/mapa_monasterio.png" alt=""><span class="race-badge">Humanos</span></div>
+        <div class="spot-desc">
+          <h3 class="spot-name">Mosteiro Sangrento</h3>
+          <div class="spot-meta"><span class="pa-req">PA: 260+</span><span>Drope Cálice</span></div>
+        </div>
+      </a>
+      <a href="spots/spot_gyfin_cima.html" class="spot-card">
+        <div class="spot-img"><img src="../geminii/assets/mapa_gyfin_cima.png" alt=""><span class="race-badge">Kamasylvia</span></div>
+        <div class="spot-desc">
+          <h3 class="spot-name">Gyfin Rasia (Cima)</h3>
+          <div class="spot-meta"><span class="pa-req">PA: 270+</span><span>Grupo 5 Pessoas</span></div>
+        </div>
+      </a>
+      <a href="spots/spot_espinheira_dekia.html" class="spot-card">
+        <div class="spot-img"><img src="../geminii/assets/mapa_espinheira_dekia.png" alt=""><span class="race-badge">Kamasylvia</span></div>
+        <div class="spot-desc">
+          <h3 class="spot-name">Floresta Espinheira (Dekia)</h3>
+          <div class="spot-meta"><span class="pa-req">PA: 310+</span><span>Meta prata/H</span></div>
+        </div>
+      </a>
+      <a href="spots/spot_hexe_elvia.html" class="spot-card">
+        <div class="spot-img"><img src="../geminii/assets/mapa_hexe_elvia.png" alt=""><span class="race-badge">Animal</span></div>
+        <div class="spot-desc">
+          <h3 class="spot-name">Santuário Hexe (Reino de Elvia)</h3>
+          <div class="spot-meta"><span class="pa-req">PA: 300+</span><span>Brinco corrosão</span></div>
+        </div>
+      </a>
+    </div>
+
+    <div style="text-align: center;">
+      <a href="index.html" class="btn-voltar">◆ Retornar ao Portal Principal</a>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EGO — Passo 4: Diários e Rotas de Prata</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 100%; min-height: 100%; font-family: 'Inter', sans-serif; color: #f1f5f9;
+      background: linear-gradient(rgba(5,8,18,0.85), rgba(5,8,18,0.95)), url("../assets/bg.png") center / cover no-repeat fixed;
+    }
+    .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+    .header-area { text-align: center; margin-bottom: 40px; }
+    .brand { font-family: 'Cinzel', serif; letter-spacing: 4px; font-size: 18px; opacity: .8; color: #fb923c; }
+    .title { font-family: 'Cinzel', serif; font-size: clamp(24px, 4vw, 42px); margin: 10px 0; }
+    
+    .card { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 16px; margin-bottom: 25px; }
+    h3 { font-family: 'Cinzel', serif; color: #fb923c; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+    
+    .tutorial-step { margin-bottom: 25px; padding-left: 15px; border-left: 2px solid #fb923c; }
+    .highlight { color: #fff; font-weight: bold; }
+    .stat-boost { color: #4ade80; font-weight: bold; }
+    
+    .grind-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 15px; }
+    .grind-card { background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; }
+    .silver { color: #e2e8f0; font-weight: bold; display: block; margin-top: 10px; }
+
+    .btn { display: inline-block; padding: 12px 22px; border-radius: 10px; font-weight: 700; text-decoration: none; color: #fff; background: linear-gradient(135deg, #f97316, #fb923c); transition: 0.15s ease; cursor: pointer; border: none; margin-top: 20px; text-transform: uppercase; }
+    .btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+    
+    .tip-box { background: rgba(251, 146, 60, 0.1); border-left: 4px solid #fb923c; padding: 15px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-area">
+      <div class="brand">PASSO IV</div>
+      <h1 class="title">Consolidação de Poder</h1>
+      <p>Atributos permanentes e o caminho da fortuna.</p>
+    </div>
+
+    <div class="card">
+      <h3>1. Diários de Aventura (Atributos Grátis)</h3>
+      <p>Muitos novatos perguntam por que têm o mesmo item que um veterano, mas batem menos. A resposta são os <b>Diários de Aventura</b>. Eles dão status que ficam na sua conta para sempre.</p>
+      
+      <div class="tutorial-step">
+        <p><span class="highlight">Diário de Igor Bartali:</span> O mais importante. Ao completar os 15 volumes, você ganha <span class="stat-boost">+4 de PA e +2 de PD</span>. </p>
+        <p><i>Como fazer:</i> Menu ESC > Aventura > Diário de Aventura. Clique nas páginas para ver a missão e, após completar, clique na página para resgatar o atributo.</p>
+      </div>
+
+      <div class="tutorial-step">
+        <p><span class="highlight">Diário de Deve:</span> Consiste em mostrar coleções de itens para o NPC Deve em Altinova. Dá <span class="stat-boost">+1 de PA</span>.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>2. Onde Grindar (Ficando Rico)</h3>
+      <p>Com os itens da Academia (309 PA) e os diários encaminhados, você deve focar em spots que rendem prata bruta para comprar seus acessórios finais.</p>
+      
+      <div class="grind-grid">
+        <div class="grind-card">
+          <span class="highlight">Orcs (Serendia Elvia)</span>
+          <p>Fácil e extremamente lucrativo. Focado no lixinho e materiais.</p>
+          <span class="silver">💰 ~1 Bilhão / Hora</span>
+        </div>
+        <div class="grind-card">
+          <span class="highlight">Gyfin (Subsolo)</span>
+          <p>O melhor lugar para subir de nível e ganhar prata alta. Exige atenção às mecânicas.</p>
+          <span class="silver">💰 ~1.2 Bilhão / Hora</span>
+        </div>
+        <div class="grind-card">
+          <span class="highlight">Monastério Sangrento</span>
+          <p>Excelente spot Elvia com chance de drops raros e muitos materiais de upgrade.</p>
+          <span class="silver">💰 ~900M a 1.1B / Hora</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>3. O Pulo do Gato do Grind</h3>
+      <div class="tip-box">
+        <p>✅ <b>Pergaminho de Drop:</b> Nunca grinde sem ele! Use no Nível 2 (Azul) para spots de muita prata bruta.</p>
+        <p>✅ <b>Tenda (Camp):</b> Se tiver a tenda paga, use o buff de 50 milhões. Ele se paga em 10 minutos de grind.</p>
+        <p>✅ <b>Mercado de Domingo:</b> Junte sua prata durante a semana e compre seus itens no Domingo à noite, quando os preços costumam cair devido ao excesso de oferta.</p>
+      </div>
+    </div>
+
+    <div style="text-align: center;">
+      <a href="../index.html" class="btn">◆ Finalizar Roadmap</a>
+    </div>
+  </div>
+</body>
+</html>
